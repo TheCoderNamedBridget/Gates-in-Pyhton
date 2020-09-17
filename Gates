@@ -1,0 +1,74 @@
+'''
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+'''
+questionNum = 1
+print ('Select a Gate: AND, OR, NAND, NOR, XOR, XNOR, NOT')
+val = input('Type gate you wish to select(capitalize gate name) ')
+
+
+while( questionNum == 1 ):
+    if ( val != "AND" and val != "OR" and val != "NAND" and val != "NOR" and val != "XOR" and val != "XNOR" and val != "NOT" ):
+        print("ERROR INVALID INPUT")
+        print ('Select a Gate: AND, OR, NAND, NOR, XOR, XNOR')
+        val = input('Type gate you wish to select(capitalize gate name) ')
+    else:
+        print(val)
+        questionNum = 2
+        
+while( questionNum == 2 ):
+    outputValue = 5
+    trueOrFalse = "false"
+    valueA = input('Enter a value for A( 1 or 0): ')
+    if ( valueA != "1" and valueA != "0" ):
+        while( valueA != "1" and valueA != "0"):
+            valueA = ""
+            valueA = input('Enter a value for A( 1 or 0): ')
+            print(valueA)
+            questionNum = 1
+    if (val != "NOT" ):
+        valueB = input('Enter a value for B( 1 or 0): ')
+        if ( valueB != "1" and valueB != "0" ):
+            while( valueB != "1" and valueB != "0" ):
+                valueB = input('Enter a value for B( 1 or 0): ')
+            
+            
+        print("Inputs: A = " + valueA + " B = " + valueB )
+            
+        if ( val == "AND" and valueA == "1" and valueB == "1" ):
+            trueOrFalse = "true"
+        elif ( (val == "OR" and valueA == "1" and valueB == "0") or (val == "OR" and valueA == "0" and valueB == "1") or (val == "OR" and valueA == "1" and valueB == "1")  ):
+            trueOrFalse = "true"
+        elif ( (val == "NAND" and valueA == "0" and valueB == "0") or (val == "NAND" and valueA == "0" and valueB == "1") or (val == "NAND" and valueA == "1" and valueB == "0") ):
+            trueOrFalse = "true"
+        elif ( val == "NOR" and valueA == "0" and valueB == "0" ):
+            trueOrFalse = "true"
+        elif ( (val == "XOR" and valueA == "1" and valueB == "0") or (val == "XOR" and valueA == "0" and valueB == "1") ):
+            trueOrFalse = "true"
+        elif ( (val == "XNOR" and valueA == "1" and valueB == "1") or (val == "XNOR" and valueA == "0" and valueB == "0") ):
+            trueOrFalse = "true"
+
+        print(val + " (" + str(valueA) + ", " + str(valueB) +") = "+ trueOrFalse)
+                
+        questionNum = 1
+                
+    
+            
+            
+    elif( val == "NOT" ):
+        if (valueA == "1"):
+            outputValue = 0
+            trueOrFalse = "(False)";
+        else:
+            outputValue = 1
+            trueOrFalse = "(True)";
+                
+        print("NOT (" + str(valueA) + ") = " + str(outputValue) + " " + trueOrFalse)
+        questionNum = 1
+            
+  
+    
